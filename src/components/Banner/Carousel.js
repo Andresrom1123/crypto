@@ -21,6 +21,11 @@ const useStyles = makeStyles(() => ({
     color: "white",
   },
 }));
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
@@ -28,13 +33,8 @@ const Carousel = () => {
   const fetchtrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
 
-    console.log(data);
     setTrending(data);
   };
-
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   useEffect(() => {
     fetchtrendingCoins();
