@@ -4,7 +4,11 @@ colores azul con gris y blanco
 
 Header
 Banner
+
 - carousel
-Table
+  Table
 
 coin page
+404 page
+write readme
+deploy

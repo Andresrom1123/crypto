@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { HistoricalChart } from "../config/api";
 import { CryptoState } from "../CryptoContext";
-import LineChartComponent from "./LineChartComponent";
 import { chartDays } from "../config/data";
 import SelectButton from "./SelectButton";
 import { Line } from "react-chartjs-2";
@@ -26,8 +25,14 @@ const CoinInfo = ({ coin }) => {
     fetchHistoricData();
   }, [days]);
 
+  const buttonValue = (value) => {
+    if (value !== days) {
+      setDays(value);
+      setFlag(false);
+    }
+  };
   return (
-    <div className="col-12 col-md-7 text-center">
+    <div className="col-12 col-md-7 text-center -padding-coin">
       {!historicData | (flag === false) ? (
         <CircularProgress style={{ color: "gold" }} size={250} thickness={1} />
       ) : (
@@ -64,8 +69,7 @@ const CoinInfo = ({ coin }) => {
               <SelectButton
                 key={day.value}
                 onClick={() => {
-                  setDays(day.value);
-                  setFlag(false);
+                  buttonValue(day.value);
                 }}
                 selected={day.value === days}
               >

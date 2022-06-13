@@ -47,7 +47,7 @@ Banner
 */
 
 .-banner {
-  background-image: url("../../public/banner.avif");
+  background-image: url("../Images/banner.avif");
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -58,8 +58,41 @@ Banner
   border-color: #6c757d;
 }
 
-@media screen and(max-width: 768px) {
+@media screen and (min-width: 768px) {
   .-banner h1 {
     font-size: 3rem !important;
+  }
+}
+
+/* 
+===========
+Coinstable
+===========
+*/
+
+.-title {
+  border: 1px solid var(--clr-primary-1);
+  width: 80px;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none;
+}
+
+/* 
+==========
+Coin Page
+==========
+*/
+@media screen and (min-width: 800px) {
+  .-border-coin {
+    border-right: 1px solid grey;
+  }
+  .-padding-coin {
+    padding-left: 2rem;
   }
 }

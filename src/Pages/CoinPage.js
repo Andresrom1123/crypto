@@ -29,9 +29,8 @@ const CoinPage = () => {
 
   return (
     <main>
-      <Header />
       <section className="d-flex flex-column flex-md-row py-5 px-3">
-        <div className="col-12 col-md-5">
+        <div className="col-12 col-md-5 -border-coin pe-3 mb-5">
           <div className="text-center">
             <img
               className="text-center"
@@ -40,16 +39,43 @@ const CoinPage = () => {
               height="200"
             />
             <h3>{coin?.name}</h3>
-            <h5>{parse(coin?.description.en.split(". ")[0])}</h5>
+            <div className="-title mx-auto mb-3"></div>
+            <p
+              className="fs-6 text-muted text-justify"
+              style={{ width: "100%", textAlign: "justify" }}
+            >
+              {parse(coin?.description.en.split(". ")[0])}
+            </p>
           </div>
-          <div className="text-md-center tex-start">
-            <span>
-              <h5>Rank: {numberWithCommas(coin?.market_cap_rank)}</h5>
+          <div className="text-md-center mb-3">
+            <span className="mb-2 d-block">
+              <h5 className="d-inline">Rank: </h5>
+              <h5
+                className="d-inline"
+                style={{ color: "var(--clr-primary-1)" }}
+              >
+                {numberWithCommas(coin?.market_cap_rank)}
+              </h5>
             </span>
-            <span>
-              <h5>Market Cap:</h5>
-              <h5>
-                {symbol}{" "}
+            <span className="d-block mb-2">
+              <h5 className="d-inline">Current Price: </h5>
+              <h5
+                className="d-inline"
+                style={{ color: "var(--clr-primary-1)" }}
+              >
+                {symbol}
+                {numberWithCommas(
+                  coin?.market_data.current_price[currency.toLowerCase()]
+                )}
+              </h5>
+            </span>
+            <span className="d-block">
+              <h5 className="d-inline">Market Cap: </h5>
+              <h5
+                className="d-inline"
+                style={{ color: "var(--clr-primary-1)" }}
+              >
+                {symbol}
                 {numberWithCommas(
                   coin?.market_data.market_cap[currency.toLowerCase()]
                     .toString()

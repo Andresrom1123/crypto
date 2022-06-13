@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <section className="-banner d-flex flex-column justify-content-between p-5">
       <div className=" d-flex justify-content-end">
-        <div className="col-3 col-md-2 -pointer">
+        <div className="col-3 col-md-2">
           <SelectedCrypto />
         </div>
       </div>

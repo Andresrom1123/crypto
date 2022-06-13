@@ -12,12 +12,15 @@ export function numberWithCommas(x) {
 const Carousel = () => {
   const navigate = useNavigate();
   const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { currency, symbol } = CryptoState();
 
   const fetchtrendingCoins = async () => {
+    setLoading(true);
     const { data } = await axios.get(TrendingCoins(currency));
 
     setTrending(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const Carousel = () => {
 
     return (
       <div
-        className="d-flex flex-column"
+        className="d-flex flex-column -pointer"
         onClick={() => navigate(`/coins/${coin.id}`)}
       >
         <div>
@@ -73,19 +76,25 @@ const Carousel = () => {
   };
 
   return (
-    <div className="-pointer">
-      <AliceCarousel
-        mouseTracking
-        infinite
-        autoPlayInterval={1000}
-        animationDuration={1500}
-        disableDotsControls
-        disableButtonsControls
-        responsive={responsive}
-        items={items}
-        autoPlay
-      />
-    </div>
+    <>
+      {loading ? (
+        <div class="spinner-grow text-light"></div>
+      ) : (
+        <div>
+          <AliceCarousel
+            mouseTracking
+            infinite
+            autoPlayInterval={1000}
+            animationDuration={1500}
+            disableDotsControls
+            disableButtonsControls
+            responsive={responsive}
+            items={items}
+            autoPlay
+          />
+        </div>
+      )}
+    </>
   );
 };
 

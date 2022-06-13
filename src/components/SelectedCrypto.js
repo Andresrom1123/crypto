@@ -5,9 +5,9 @@ const SelectedCrypto = () => {
   const { currency, setCurrency } = CryptoState();
 
   return (
-    <div className="my-auto">
+    <div className="my-auto ">
       <select
-        className="form-select"
+        className="form-select -pointer"
         value={currency}
         onChange={(e) => setCurrency(e.target.value)}
       >
