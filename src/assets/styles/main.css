@@ -6,7 +6,7 @@ Variables
 */
 
 :root {
-  --clr-primary-1: #ba602c;
+  --clr-primary-1: #397af1;
 }
 
 /* 
@@ -23,15 +23,16 @@ General classes
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .-color-primary {
   color: var(--clr-primary-1);
+}
+.-bg-primary {
+  background-color: var(--clr-primary-1);
 }
 
 .-pointer {
@@ -51,7 +52,6 @@ Banner
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 100vh;
 }
 .-banner select {
   background-color: transparent;
@@ -88,6 +88,9 @@ tr {
 Coin Page
 ==========
 */
+.-button:hover {
+  background-color: var(--clr-primary-1);
+}
 @media screen and (min-width: 800px) {
   .-border-coin {
     border-right: 1px solid grey;

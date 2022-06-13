@@ -25,6 +25,7 @@ const Carousel = () => {
 
   useEffect(() => {
     fetchtrendingCoins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   const items = trending.map((coin) => {
@@ -78,7 +79,7 @@ const Carousel = () => {
   return (
     <>
       {loading ? (
-        <div class="spinner-grow text-light"></div>
+        <div className="spinner-grow text-light"></div>
       ) : (
         <div>
           <AliceCarousel

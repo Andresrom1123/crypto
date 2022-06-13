@@ -1,6 +1,6 @@
 import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HistoricalChart } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import { chartDays } from "../config/data";
@@ -11,7 +11,6 @@ const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
   const [flag, setFlag] = useState(false);
-  const ref = useRef(null);
 
   const { currency } = CryptoState();
 
@@ -23,6 +22,7 @@ const CoinInfo = ({ coin }) => {
 
   useEffect(() => {
     fetchHistoricData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days]);
 
   const buttonValue = (value) => {
@@ -34,7 +34,7 @@ const CoinInfo = ({ coin }) => {
   return (
     <div className="col-12 col-md-7 text-center -padding-coin">
       {!historicData | (flag === false) ? (
-        <CircularProgress style={{ color: "gold" }} size={250} thickness={1} />
+        <CircularProgress style={{ color: "black" }} size={250} thickness={1} />
       ) : (
         <>
           <Line
@@ -51,7 +51,7 @@ const CoinInfo = ({ coin }) => {
                 {
                   data: historicData.map((coin) => coin[1]),
                   label: `Price ( Past ${days} Days) in ${currency}`,
-                  borderColor: "#EEBC1D",
+                  borderColor: "",
                 },
               ],
             }}

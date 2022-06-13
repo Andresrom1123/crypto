@@ -26,6 +26,7 @@ const Coinstable = () => {
   };
   useEffect(() => {
     fetchCoins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   const handleSearch = () => {
@@ -38,17 +39,19 @@ const Coinstable = () => {
 
   return (
     <section className="py-5 px-3">
-      <h4 className="mb-3 text-center">Crypto currency Prices by Market Cap</h4>
+      <h4 className="mb-3 text-center text-capitalize">
+        Crypto currency Prices by Market Cap
+      </h4>
       <div className="mx-auto -title mb-5"></div>
       <input
         className="form-control shadow"
-        placeholder="Search For a Crypto Currency"
+        placeholder="Search For A Crypto Currency"
         style={{ marginBottom: 20, width: "100%" }}
         onChange={(e) => setSearch(e.target.value)}
       />
       <div>
         {loading ? (
-          <LinearProgress style={{ backgroundColor: "gold" }} />
+          <LinearProgress style={{ backgroundColor: "grey" }} />
         ) : (
           <table className="table table-striped ">
             <thead className="">
