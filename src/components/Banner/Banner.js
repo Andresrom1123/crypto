@@ -1,58 +1,24 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import SelectedCrypto from "../SelectedCrypto";
 import Carousel from "./Carousel";
 
-const useStyles = makeStyles(() => ({
-  banner: {
-    backgroundImage: "url(./banner2.jpg)",
-  },
-  bannerContent: {
-    height: 400,
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 25,
-    justifyContent: "space-around",
-  },
-  tagline: {
-    display: "flex",
-    height: "40%",
-    flexDirection: "column",
-    justifyContent: "center",
-    textAlign: "center",
-  },
-}));
-
 const Banner = () => {
-  const classes = useStyles();
-
   return (
-    <div className={classes.banner}>
-      <Container className={classes.bannerContent}>
-        <div className={classes.tagline}>
-          <Typography
-            variant="h2"
-            style={{
-              fontWeight: "bold",
-              marginBottom: 15,
-              fontFamily: "Monserrat",
-            }}
-          >
-            Crypto Hunter
-          </Typography>
-          <Typography
-            variant="subtitle2"
-            style={{
-              color: "darkgrey",
-              textTransform: "capitalize",
-              fontFamily: "Monserrat",
-            }}
-          >
-            Get all the info regarding your favorite Crypto Currency
-          </Typography>
+    <section className="-banner d-flex flex-column justify-content-between p-5">
+      <div className=" d-flex justify-content-end">
+        <div className="col-3 col-md-2 -pointer">
+          <SelectedCrypto />
         </div>
+      </div>
+      <div className="text-center">
+        <h1 className="fs-1 -color-primary text-uppercase">Crypto Hunter</h1>
+        <p className="fs-6 text-capitalize text-white">
+          Get all the info regarding your favorite Crypto Currency
+        </p>
         <Carousel />
-      </Container>
-    </div>
+      </div>
+      <div></div>
+    </section>
   );
 };
 
