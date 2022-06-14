@@ -45,7 +45,7 @@ const Carousel = () => {
           />
         </div>
         <span
-          className="text-uppercase"
+          className="text-uppercase -color-oscuro"
           style={{ fontSize: 22, fontWeight: 500 }}
         >
           {coin?.symbol}
@@ -60,7 +60,7 @@ const Carousel = () => {
             {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
-        <span style={{ fontWeight: 500 }}>
+        <span className="-color-neutro" style={{ fontWeight: 500 }}>
           {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </div>

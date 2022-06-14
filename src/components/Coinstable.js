@@ -20,6 +20,7 @@ const Coinstable = () => {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
+    console.log(data);
     setCoins(data);
 
     setLoading(false);
@@ -36,20 +37,19 @@ const Coinstable = () => {
         coin.symbol.toLowerCase().includes(search)
     );
   };
-
   return (
     <section className="py-5 px-3">
-      <h4 className="mb-3 text-center text-capitalize">
+      <h4 className="mb-3 text-center -color-oscuro text-capitalize">
         Crypto currency Prices by Market Cap
       </h4>
       <div className="mx-auto -title mb-5"></div>
       <input
-        className="form-control shadow"
+        className="form-control shadow -color-oscuro"
         placeholder="Search For A Crypto Currency"
         style={{ marginBottom: 20, width: "100%" }}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div>
+      <div style={{ overflowX: "auto" }}>
         {loading ? (
           <LinearProgress style={{ backgroundColor: "grey" }} />
         ) : (
@@ -59,8 +59,8 @@ const Coinstable = () => {
                 {listCoin.map((head) => (
                   <th
                     scope="col"
+                    className="-color-oscuro"
                     style={{
-                      color: "black",
                       fontWeight: 700,
                     }}
                     key={head}
@@ -72,7 +72,7 @@ const Coinstable = () => {
               </tr>
             </thead>
 
-            <tbody className="">
+            <tbody>
               {handleSearch()
                 .slice((page - 1) * 10, (page - 1) * 10 + 10)
                 .map((row) => {
@@ -101,6 +101,7 @@ const Coinstable = () => {
                           style={{ display: "flex", flexDirection: "column" }}
                         >
                           <span
+                            className="-color-oscuro"
                             style={{
                               textTransform: "uppercase",
                               fontSize: 22,
@@ -108,10 +109,10 @@ const Coinstable = () => {
                           >
                             {row.symbol}
                           </span>
-                          <span style={{ color: "darkgrey" }}>{row.name}</span>
+                          <span className="-color-neutro">{row.name}</span>
                         </div>
                       </th>
-                      <th align="right">
+                      <th align="right" className="-color-oscuro">
                         {symbol}{" "}
                         {numberWithCommas(row.current_price.toFixed(2))}
                       </th>
@@ -125,7 +126,7 @@ const Coinstable = () => {
                         {profit && "+"}
                         {row.price_change_percentage_24h.toFixed(2)}%
                       </th>
-                      <th align="right">
+                      <th align="right" className="-color-oscuro">
                         {symbol}{" "}
                         {numberWithCommas(
                           row.market_cap.toString().slice(0, -6)

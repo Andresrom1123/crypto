@@ -38,10 +38,10 @@ const CoinPage = () => {
               alt={coin?.name}
               height="200"
             />
-            <h3>{coin?.name}</h3>
+            <h3 className="-color-oscuro">{coin?.name}</h3>
             <div className="-title mx-auto mb-3"></div>
             <p
-              className="fs-6 text-justify"
+              className="fs-6 text-justify -color-oscuro"
               style={{ width: "100%", textAlign: "justify" }}
             >
               {parse(coin?.description.en.split(". ")[0])}
@@ -50,13 +50,13 @@ const CoinPage = () => {
           <div className="text-md-center mb-3">
             <span className="mb-2 d-block">
               <h5 className="d-inline">Rank: </h5>
-              <h5 className="d-inline text-muted">
+              <h5 className="d-inline -color-neutro">
                 {numberWithCommas(coin?.market_cap_rank)}
               </h5>
             </span>
             <span className="d-block mb-2">
               <h5 className="d-inline">Current Price: </h5>
-              <h5 className="d-inline text-muted">
+              <h5 className="d-inline -color-neutro">
                 {symbol}
                 {numberWithCommas(
                   coin?.market_data.current_price[currency.toLowerCase()]
@@ -65,7 +65,7 @@ const CoinPage = () => {
             </span>
             <span className="d-block">
               <h5 className="d-inline">Market Cap: </h5>
-              <h5 className="d-inline text-muted">
+              <h5 className="d-inline -color-neutro">
                 {symbol}
                 {numberWithCommas(
                   coin?.market_data.market_cap[currency.toLowerCase()]

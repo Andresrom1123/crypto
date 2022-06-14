@@ -6,7 +6,11 @@ Variables
 */
 
 :root {
-  --clr-primary-1: #397af1;
+  --clr-primary-1: #304a6e;
+  --clr-secondary-1: #668dc0;
+  --clr-neutro: #c2c6ce;
+  --clr-oscuro: #0f1c30;
+  --clr-claro: #c0d0ef;
 }
 
 /* 
@@ -31,8 +35,20 @@ body {
 .-color-primary {
   color: var(--clr-primary-1);
 }
-.-bg-primary {
-  background-color: var(--clr-primary-1);
+.-color-secondary {
+  color: var(--clr-secondary-1);
+}
+.-color-oscuro {
+  color: var(--clr-oscuro);
+}
+.-color-claro {
+  color: var(--clr-claro);
+}
+.-color-neutro {
+  color: var(--clr-neutro);
+}
+.-bg-secondary {
+  background-color: var(--clr-secondary-1);
 }
 
 .-pointer {
@@ -48,14 +64,14 @@ Banner
 */
 
 .-banner {
-  background-image: url("../Images/banner.avif");
+  background-image: url("../Images/banner-3.avif");
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.-banner select {
+.-select {
   background-color: transparent;
-  border-color: #6c757d;
+  border-color: transparent;
 }
 
 @media screen and (min-width: 768px) {
@@ -89,7 +105,7 @@ Coin Page
 ==========
 */
 .-button:hover {
-  background-color: var(--clr-primary-1);
+  background-color: var(--clr-secondary-1);
 }
 @media screen and (min-width: 800px) {
   .-border-coin {
