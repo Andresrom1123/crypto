@@ -27,7 +27,6 @@ const Signup = ({ handleClose }) => {
         email,
         password
       );
-      console.log(result);
       setAlert({
         open: true,
         message: `Sign Up Successful. Welcome ${result.user.email}`,
@@ -75,8 +74,7 @@ const Signup = ({ handleClose }) => {
           placeholder="Enter password"
           type="submit"
           onClick={handleSubmit}
-          className="btn border"
-          style={{ backgroundColor: "var(--clr-secondary-1)" }}
+          className="btn border -bg-secondary"
         >
           Sign Up
         </button>

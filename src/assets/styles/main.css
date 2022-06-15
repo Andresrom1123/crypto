@@ -51,6 +51,9 @@ body {
   background-color: var(--clr-secondary-1);
 }
 
+.-bg-primary {
+  background-color: var(--clr-primary-1) !important;
+}
 .-pointer {
   cursor: pointer;
 }

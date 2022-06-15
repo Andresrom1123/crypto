@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SelectedCrypto from "./SelectedCrypto";
 import AuthModal from "./Authentication/AuthModal";
+import { CryptoState } from "../CryptoContext";
+import UserSiderbar from "./Authentication/UserSiderbar";
 
 const Header = () => {
   let navigate = useNavigate();
+
+  const { user } = CryptoState();
+
   return (
     <header className="d-flex py-3 px-5 bg-light shadow align-items-center">
       <h5 className="col-6 my-auto">
@@ -16,7 +21,7 @@ const Header = () => {
         <div className="">
           <SelectedCrypto />
         </div>
-        <AuthModal />
+        {user ? <UserSiderbar /> : <AuthModal />}
       </div>
     </header>
   );

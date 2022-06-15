@@ -62,8 +62,7 @@ const Login = ({ handleClose }) => {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="btn border"
-          style={{ backgroundColor: "var(--clr-secondary-1)" }}
+          className="btn border -bg-secondary"
         >
           Login
         </button>
