@@ -68,7 +68,7 @@ const CoinInfo = ({ coin }) => {
             }}
           />
 
-          <div className="d-flex justify-content-around mt-5">
+          <div className="d-flex justify-content-around my-5">
             {chartDays.map((day) => (
               <SelectButton
                 key={day.value}
