@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CryptoState } from "../CryptoContext";
 import { LinearProgress } from "@material-ui/core";
-import { CoinList } from "../config/api";
 import { numberWithCommas } from "./Banner/Carousel";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "@material-ui/lab";
 
 const Coinstable = () => {
   let navigate = useNavigate();
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
-  const { currency, symbol } = CryptoState();
+  const { symbol, coins, loading } = CryptoState();
   const listCoin = ["Coin", "Price", "24h Change", "Market Cap"];
-
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    setCoins(data);
-
-    setLoading(false);
-  };
-  useEffect(() => {
-    fetchCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currency]);
 
   const handleSearch = () => {
     return coins.filter(

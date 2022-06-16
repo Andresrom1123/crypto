@@ -60,7 +60,7 @@ const Carousel = () => {
             {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
-        <span className="-color-neutro" style={{ fontWeight: 500 }}>
+        <span className="-color-neutro fw-bold" style={{ fontWeight: 500 }}>
           {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </div>
@@ -79,7 +79,7 @@ const Carousel = () => {
   return (
     <>
       {loading ? (
-        <div className="spinner-grow text-light"></div>
+        <div className="spinner-grow text-primary"></div>
       ) : (
         <div>
           <AliceCarousel

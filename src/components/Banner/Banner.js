@@ -1,5 +1,4 @@
 import React from "react";
-import SelectedCrypto from "../SelectedCrypto";
 import Carousel from "./Carousel";
 
 const Banner = () => {

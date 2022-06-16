@@ -14,7 +14,7 @@ const Login = ({ handleClose }) => {
     if (!email || !password) {
       setAlert({
         open: true,
-        message: "Plese fill all the Fields",
+        message: "Plase fill all the Fields",
         type: "error",
       });
       return;

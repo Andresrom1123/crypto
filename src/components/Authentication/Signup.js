@@ -20,6 +20,14 @@ const Signup = ({ handleClose }) => {
       });
       return;
     }
+    if (!email || !password || !confirmPassword) {
+      setAlert({
+        open: true,
+        message: "Plase fill all the Fields",
+        type: "error",
+      });
+      return;
+    }
 
     try {
       const result = await createUserWithEmailAndPassword(
