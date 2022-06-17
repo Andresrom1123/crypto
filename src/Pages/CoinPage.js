@@ -62,7 +62,7 @@ const CoinPage = () => {
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wisht) => wisht !== coin?.id) },
+        { coins: watchlist.filter((watch) => watch !== coin?.id) },
         { merge: true }
       );
       setAlert({
